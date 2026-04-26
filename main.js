@@ -1,5 +1,4 @@
 const { app, BrowserWindow, session } = require('electron');
-const path = require('path');
 
 function createWindow() {
   const win = new BrowserWindow({
@@ -19,12 +18,21 @@ function createWindow() {
   win.loadFile('index.html');
 }
 
+const CHROME_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+
 app.whenReady().then(() => {
-  // X.com の X-Frame-Options を無効化してwebviewで読み込めるようにする
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+  const ses = session.defaultSession;
+
+  // User-Agent を Chrome に偽装（Electronと判定されてログインが弾かれるのを防ぐ）
+  ses.setUserAgent(CHROME_UA);
+
+  // セキュリティヘッダーを除去してwebviewで正常に動作させる
+  ses.webRequest.onHeadersReceived((details, callback) => {
     const headers = { ...details.responseHeaders };
-    delete headers['x-frame-options'];
-    delete headers['X-Frame-Options'];
+    const drop = ['x-frame-options', 'content-security-policy', 'content-security-policy-report-only'];
+    for (const key of Object.keys(headers)) {
+      if (drop.includes(key.toLowerCase())) delete headers[key];
+    }
     callback({ responseHeaders: headers });
   });
 
