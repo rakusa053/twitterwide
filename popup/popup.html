@@ -7,54 +7,73 @@
 </head>
 <body>
   <header>
+    <div class="logo">🐦</div>
     <h1>TwitterWide</h1>
-    <p class="subtitle">3画面タイムライン同時表示</p>
+    <p class="subtitle">3つのタイムラインを同時に表示します</p>
   </header>
 
   <main>
+    <p class="section-title">📺 各画面のURLを設定してください</p>
+
     <div class="columns">
-      <div class="column-config" data-index="0">
-        <span class="col-label">画面 1</span>
-        <input type="text" id="url0" placeholder="https://x.com/home">
+      <div class="column-config">
+        <div class="col-header">
+          <span class="col-num">1</span>
+          <span class="col-label">左の画面</span>
+        </div>
         <select id="preset0">
-          <option value="">— プリセット —</option>
-          <option value="https://x.com/home">ホーム</option>
-          <option value="https://x.com/notifications">通知</option>
-          <option value="custom">カスタムURL</option>
+          <option value="">▼ よく使うページから選ぶ</option>
+          <option value="https://x.com/home">🏠 ホーム</option>
+          <option value="https://x.com/notifications">🔔 通知</option>
+          <option value="https://x.com/explore">🔍 おすすめ・トレンド</option>
+          <option value="https://x.com/messages">✉️ メッセージ</option>
         </select>
+        <input type="text" id="url0" placeholder="または URL を直接入力">
       </div>
 
-      <div class="column-config" data-index="1">
-        <span class="col-label">画面 2</span>
-        <input type="text" id="url1" placeholder="https://x.com/search?q=keyword">
+      <div class="column-config">
+        <div class="col-header">
+          <span class="col-num">2</span>
+          <span class="col-label">真ん中の画面</span>
+        </div>
         <select id="preset1">
-          <option value="">— プリセット —</option>
-          <option value="https://x.com/home">ホーム</option>
-          <option value="https://x.com/notifications">通知</option>
-          <option value="custom">カスタムURL</option>
+          <option value="">▼ よく使うページから選ぶ</option>
+          <option value="https://x.com/home">🏠 ホーム</option>
+          <option value="https://x.com/notifications">🔔 通知</option>
+          <option value="https://x.com/explore">🔍 おすすめ・トレンド</option>
+          <option value="https://x.com/messages">✉️ メッセージ</option>
         </select>
+        <input type="text" id="url1" placeholder="または URL を直接入力">
       </div>
 
-      <div class="column-config" data-index="2">
-        <span class="col-label">画面 3</span>
-        <input type="text" id="url2" placeholder="https://x.com/i/lists/...">
+      <div class="column-config">
+        <div class="col-header">
+          <span class="col-num">3</span>
+          <span class="col-label">右の画面</span>
+        </div>
         <select id="preset2">
-          <option value="">— プリセット —</option>
-          <option value="https://x.com/home">ホーム</option>
-          <option value="https://x.com/notifications">通知</option>
-          <option value="custom">カスタムURL</option>
+          <option value="">▼ よく使うページから選ぶ</option>
+          <option value="https://x.com/home">🏠 ホーム</option>
+          <option value="https://x.com/notifications">🔔 通知</option>
+          <option value="https://x.com/explore">🔍 おすすめ・トレンド</option>
+          <option value="https://x.com/messages">✉️ メッセージ</option>
         </select>
+        <input type="text" id="url2" placeholder="または URL を直接入力">
       </div>
     </div>
 
-    <div class="options">
+    <div class="option-box">
       <label class="toggle">
         <input type="checkbox" id="syncScroll">
-        <span>スクロール同期</span>
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span class="toggle-label">
+          🔗 スクロール同期<br>
+          <small>1つの画面をスクロールすると他も動きます</small>
+        </span>
       </label>
     </div>
 
-    <button id="launch">3画面を起動</button>
+    <button id="launch">🚀 3画面を起動する</button>
   </main>
 
   <script src="popup.js"></script>
