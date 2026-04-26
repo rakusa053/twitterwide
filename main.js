@@ -20,13 +20,8 @@ function createWindow() {
 
 const CHROME_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
 
-app.whenReady().then(() => {
-  const ses = session.defaultSession;
-
-  // User-Agent を Chrome に偽装（Electronと判定されてログインが弾かれるのを防ぐ）
+function applySessionSettings(ses) {
   ses.setUserAgent(CHROME_UA);
-
-  // セキュリティヘッダーを除去してwebviewで正常に動作させる
   ses.webRequest.onHeadersReceived((details, callback) => {
     const headers = { ...details.responseHeaders };
     const drop = ['x-frame-options', 'content-security-policy', 'content-security-policy-report-only'];
@@ -35,6 +30,12 @@ app.whenReady().then(() => {
     }
     callback({ responseHeaders: headers });
   });
+}
+
+app.whenReady().then(() => {
+  // デフォルトセッションとwebview用セッション両方に設定を適用
+  applySessionSettings(session.defaultSession);
+  applySessionSettings(session.fromPartition('persist:twitter'));
 
   createWindow();
 });
