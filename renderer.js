@@ -17,9 +17,15 @@ const preloadPath = `file://${path.join(__dirname, 'webview-preload.js')}`;
 webviews.forEach((wv, i) => {
   wv.setAttribute('preload', preloadPath);
 
-  // URLバーをナビゲーションに同期
+  // URLバーをナビゲーションに同期 & ログイン完了を検出
   wv.addEventListener('did-navigate', (e) => {
     urlBars[i].value = e.url;
+    // ログイン後にホームへ遷移したら他のパネルを自動リロード
+    if (/x\.com\/(home|i\/timeline)|twitter\.com\/(home|i\/timeline)/.test(e.url)) {
+      webviews.forEach((other, j) => {
+        if (j !== i) other.reload();
+      });
+    }
   });
   wv.addEventListener('did-navigate-in-page', (e) => {
     urlBars[i].value = e.url;
