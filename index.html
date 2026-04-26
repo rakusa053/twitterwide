@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TwitterWide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 上部コントロールバー -->
+  <header id="toolbar">
+    <span class="app-title">🐦 TwitterWide</span>
+
+    <div class="controls">
+      <label class="sync-toggle">
+        <input type="checkbox" id="syncToggle">
+        <span class="toggle-track"><span class="toggle-thumb"></span></span>
+        <span>スクロール同期</span>
+      </label>
+
+      <button class="btn" id="reloadAll">🔄 全て更新</button>
+    </div>
+  </header>
+
+  <!-- 3カラムエリア -->
+  <div id="columns">
+    <div class="col" id="col-0">
+      <div class="col-bar">
+        <span class="col-num">1</span>
+        <input class="url-bar" type="text" id="urlBar0" placeholder="https://x.com/home">
+        <button class="go-btn" data-col="0">→</button>
+        <button class="reload-btn" data-col="0">🔄</button>
+      </div>
+      <webview id="wv0" src="https://x.com/home" class="wv"></webview>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col" id="col-1">
+      <div class="col-bar">
+        <span class="col-num">2</span>
+        <input class="url-bar" type="text" id="urlBar1" placeholder="https://x.com/notifications">
+        <button class="go-btn" data-col="1">→</button>
+        <button class="reload-btn" data-col="1">🔄</button>
+      </div>
+      <webview id="wv1" src="https://x.com/notifications" class="wv"></webview>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col" id="col-2">
+      <div class="col-bar">
+        <span class="col-num">3</span>
+        <input class="url-bar" type="text" id="urlBar2" placeholder="https://x.com/explore">
+        <button class="go-btn" data-col="2">→</button>
+        <button class="reload-btn" data-col="2">🔄</button>
+      </div>
+      <webview id="wv2" src="https://x.com/explore" class="wv"></webview>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

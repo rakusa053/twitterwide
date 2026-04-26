@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0f1419;
+  color: #e7e9ea;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+  overflow: hidden;
+}
+
+/* ツールバー */
+#toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #16181c;
+  border-bottom: 1px solid #2f3336;
+  flex-shrink: 0;
+  height: 48px;
+}
+
+.app-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1d9bf0;
+  letter-spacing: -0.3px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* スクロール同期トグル */
+.sync-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #e7e9ea;
+  user-select: none;
+}
+
+.sync-toggle input { display: none; }
+
+.toggle-track {
+  width: 40px;
+  height: 22px;
+  background: #2f3336;
+  border-radius: 11px;
+  position: relative;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.2s;
+}
+.sync-toggle input:checked + .toggle-track { background: #1d9bf0; }
+.sync-toggle input:checked + .toggle-track .toggle-thumb { left: 21px; }
+
+/* ボタン */
+.btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid #2f3336;
+  border-radius: 9999px;
+  color: #e7e9ea;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn:hover { background: #2f3336; }
+
+/* 3カラム */
+#columns {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.divider {
+  width: 3px;
+  background: #2f3336;
+  flex-shrink: 0;
+  cursor: col-resize;
+}
+
+/* カラム上部のURLバー */
+.col-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: #16181c;
+  border-bottom: 1px solid #2f3336;
+  flex-shrink: 0;
+}
+
+.col-num {
+  width: 22px;
+  height: 22px;
+  background: #1d9bf0;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.url-bar {
+  flex: 1;
+  padding: 5px 10px;
+  background: #0f1419;
+  border: 1px solid #2f3336;
+  border-radius: 6px;
+  color: #e7e9ea;
+  font-size: 12px;
+  outline: none;
+  min-width: 0;
+}
+.url-bar:focus { border-color: #1d9bf0; }
+
+.go-btn, .reload-btn {
+  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid #2f3336;
+  border-radius: 6px;
+  color: #e7e9ea;
+  font-size: 12px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+.go-btn:hover, .reload-btn:hover { background: #2f3336; }
+
+/* webview */
+.wv {
+  flex: 1;
+  width: 100%;
+  border: none;
+}

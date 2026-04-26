@@ -1,0 +1,12 @@
+{
+  "name": "twitterwide",
+  "version": "1.0.0",
+  "description": "3つのTwitterタイムラインを1画面に同時表示",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^29.0.0"
+  }
+}
