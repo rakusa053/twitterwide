@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TwitterWide</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>TwitterWide</h1>
+    <p class="subtitle">3画面タイムライン同時表示</p>
+  </header>
+
+  <main>
+    <div class="columns">
+      <div class="column-config" data-index="0">
+        <span class="col-label">画面 1</span>
+        <input type="text" id="url0" placeholder="https://x.com/home">
+        <select id="preset0">
+          <option value="">— プリセット —</option>
+          <option value="https://x.com/home">ホーム</option>
+          <option value="https://x.com/notifications">通知</option>
+          <option value="custom">カスタムURL</option>
+        </select>
+      </div>
+
+      <div class="column-config" data-index="1">
+        <span class="col-label">画面 2</span>
+        <input type="text" id="url1" placeholder="https://x.com/search?q=keyword">
+        <select id="preset1">
+          <option value="">— プリセット —</option>
+          <option value="https://x.com/home">ホーム</option>
+          <option value="https://x.com/notifications">通知</option>
+          <option value="custom">カスタムURL</option>
+        </select>
+      </div>
+
+      <div class="column-config" data-index="2">
+        <span class="col-label">画面 3</span>
+        <input type="text" id="url2" placeholder="https://x.com/i/lists/...">
+        <select id="preset2">
+          <option value="">— プリセット —</option>
+          <option value="https://x.com/home">ホーム</option>
+          <option value="https://x.com/notifications">通知</option>
+          <option value="custom">カスタムURL</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="options">
+      <label class="toggle">
+        <input type="checkbox" id="syncScroll">
+        <span>スクロール同期</span>
+      </label>
+    </div>
+
+    <button id="launch">3画面を起動</button>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 340px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0f1419;
+  color: #e7e9ea;
+}
+
+header {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #2f3336;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d9bf0;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #71767b;
+  margin-top: 2px;
+}
+
+main {
+  padding: 16px 20px;
+}
+
+.columns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.column-config {
+  background: #16181c;
+  border: 1px solid #2f3336;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.col-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1d9bf0;
+  margin-bottom: 6px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 7px 10px;
+  background: #0f1419;
+  border: 1px solid #2f3336;
+  border-radius: 6px;
+  color: #e7e9ea;
+  font-size: 12px;
+  outline: none;
+  margin-bottom: 6px;
+}
+
+input[type="text"]:focus {
+  border-color: #1d9bf0;
+}
+
+input[type="text"]::placeholder {
+  color: #71767b;
+}
+
+select {
+  width: 100%;
+  padding: 6px 10px;
+  background: #0f1419;
+  border: 1px solid #2f3336;
+  border-radius: 6px;
+  color: #71767b;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #1d9bf0;
+}
+
+.options {
+  margin: 14px 0;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #e7e9ea;
+}
+
+.toggle input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1d9bf0;
+  cursor: pointer;
+}
+
+#launch {
+  width: 100%;
+  padding: 11px;
+  background: #1d9bf0;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#launch:hover {
+  background: #1a8cd8;
+}
